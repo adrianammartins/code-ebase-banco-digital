@@ -1,5 +1,8 @@
 package br.com.code.ebase.bancodigital.model;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class ContaCorrente extends ContaBancaria {
     private double taxaManutencao;
 

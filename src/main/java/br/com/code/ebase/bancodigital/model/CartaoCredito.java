@@ -1,6 +1,9 @@
 package br.com.code.ebase.bancodigital.model;
 
-public class CartaoCredito {
+import jakarta.persistence.Entity;
+
+@Entity
+public class CartaoCredito extends Cartao{
     private double limite;
     private double saldoUtilizado;
 

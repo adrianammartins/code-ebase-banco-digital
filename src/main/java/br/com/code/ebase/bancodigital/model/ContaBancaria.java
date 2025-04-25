@@ -1,8 +1,24 @@
 package br.com.code.ebase.bancodigital.model;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "CONTA_BANCARIA")
 public abstract class ContaBancaria {
-    protected   double saldo;
-    protected  Cliente cliente;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    protected double saldo;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cliente_id")
+    protected Cliente cliente;
 
     public ContaBancaria(Cliente cliente) {
         this.cliente = cliente;
@@ -29,7 +45,4 @@ public abstract class ContaBancaria {
     public double getSaldo() {
         return saldo;
     }
-
-
-
 }
